@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: random-hash
+  namespace: ckad
+spec:
+  parallelism: 2
+  completions: 5
+  template:
+    spec:
+      containers:
+      - image: nginx:alpine
+        name: random-hash
+        command:
+        - /bin/sh
+        - -c 
+        - "echo $RANDOM | base64 | head -c 20"
+        resources: {}
+      restartPolicy: Never
+status: {}

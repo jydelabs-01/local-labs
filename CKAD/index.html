@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Storage Demo App</title>
+</head>
+<body>
+
+  <head>
+    <h1>Welcome to Kubernetes Storahe Demo!</h1>
+    <p>Your uploads and logs are managed with ephemeral and persistent storage</p>
+  </head>
+    <body>
+        <section>
+        <h2>Upload a File</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required />
+            <button type="submit">Upload</button>
+        </form>
+        </section>
+    
+        <section>
+        <h2>View Logs</h2>
+        <pre id="logs">
+            <!-- Logs will be dynamically inserted here -->
+        </pre>
+        </section>
+    
+        <script>
+        // Fetch and display logs
+        fetch('/logs')
+            .then(response => response.text())
+            .then(data => {
+            document.getElementById('logs').textContent = data;
+            });
+        </script>
+</body>
+</html>
+

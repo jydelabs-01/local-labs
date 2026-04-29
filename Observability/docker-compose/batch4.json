@@ -1,0 +1,19 @@
+[
+    {
+      "targets": [ "172.17.0.2:9100" ],
+      "labels": {
+        "os": "linux",
+        "runtime": "vm"
+      }
+    },
+    {
+      "targets": [ 
+        "172.17.0.2:80",
+        "172.17.0.4:80" 
+      ],
+      "labels": {
+        "os": "linux",
+        "runtime": "container"
+      }
+    }
+]
